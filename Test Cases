@@ -1,0 +1,40 @@
+Functionality
+
+Case 1:
+    Description: TextArea should autoscroll when text goes off the screen.
+    Test Step: Run the program and use examples2.txt because the text should go off the screen.
+    Expected Result: TextArea follows the words as the go off the screen.
+    Result: Pass
+Case 2:
+    Description: The pull-down window should have all the appropriate things added, and the New Window Function should work.
+    Test Step: Open a window using the pulldown screen.
+    Expected Result: Another window should open.
+    Result: Pass
+Case 3:
+    Description: Popup window should happen when we right click. And all the functions shown should work.
+    Test Step: Open the program and go through the greenhouse controls using the popup window.
+    Expected Result: All functionalities work.
+    Result: Pass
+Case 4:
+    Description: Ensure all the buttons work
+    Test Step: Open the program and go through the Greenhouse controls.
+    Expected Result: Successfully open a file and then fix it.
+    Result: Pass
+
+Usability
+
+Case 1:
+    Description: Restore button should not accept .txt files.
+    Test Step: Restore a .txt file
+    Expected Result: Tell me that I cannot use it.
+    Result: Pass
+Case 2:
+    Description: Choose button should not accept Dump.out files.
+    Test Step: Choose a dump.out file
+    Expected Result: Tell me that it is not usable here.
+    Result: Pass
+Case 3:
+    Description: Buttons should only be usable according to what the assignment asks.
+    Test Step: Go through greenhouse controls.
+    Expected Result: The buttons should line up to what the assignment asks.
+    Result: Pass
