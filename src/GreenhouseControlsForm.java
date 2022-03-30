@@ -59,6 +59,7 @@ public class GreenhouseControlsForm extends JFrame {
         setSize(700,400);
         setLocationRelativeTo(null);
         setLayout(new GridBagLayout());
+
         setResizable(false);
 
         JMenuBar menuBar = new JMenuBar();
@@ -216,7 +217,6 @@ public class GreenhouseControlsForm extends JFrame {
         add(resume, constraints);
 
 
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         setVisible(true);
 
@@ -589,12 +589,12 @@ public class GreenhouseControlsForm extends JFrame {
             suspendPopup.setEnabled(true);
             for(Event event : gc.getEventList())
             {
-           /*     if (!event.isAttempted())
+                if (!event.isAttempted())
                 {
-              //      event.restart();
+                   // event.restart();
                     Thread t = new Thread(event);
                     t.start();
-                }*/
+                }
             }
         }
     }
@@ -665,7 +665,7 @@ public class GreenhouseControlsForm extends JFrame {
                 delayTime = Long.parseLong(delay);
                 start.setEnabled(false);
                 textArea.setText("");
-              // gc.terminateAll(delayTime);
+                gc.terminateAll(delayTime);
                 restart.setEnabled(true);
                 restartPopup.setEnabled(true);
                 suspend.setEnabled(false);
@@ -730,7 +730,6 @@ public class GreenhouseControlsForm extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if(e.getActionCommand().equals("Start")) {
-                gc.addEvent(new Restart(gc, 0L, eventsFile));
 
                 if(isDumpFile == true && !gc.getErrorCode().equals("0"))
                 {
@@ -738,7 +737,8 @@ public class GreenhouseControlsForm extends JFrame {
                 }
                 if(isDumpFile == false) {
                     start.setEnabled(false);
-                    }
+                    gc.addEvent(new Restart(gc, 0L, eventsFile));
+                }
 
                 start.setEnabled(false);
                 startPopup.setEnabled(false);

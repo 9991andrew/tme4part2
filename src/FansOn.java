@@ -5,7 +5,7 @@ public class FansOn extends Event {
 
     /**
      * @param controller The greenhousecontrols we are working on.
-     * @param delayTime The amount of time to delay for.
+     * @param du The amount of time to delay for.
      */
     public FansOn(GreenhouseControls controller, Long du) {
         super(controller,du);
@@ -18,11 +18,13 @@ public class FansOn extends Event {
     public void action() {
         this.ctl.setVariable("Fans", true);
         this.ctl.setErrorCode("0");
-      /*  if(!isAttempted())
+       if(!isAttempted())
         {
             GreenhouseControls.gfcf.setTheTextArea(toString());
             setAttempted(true);
-        }*/
+
+        }
+
         return;
     }
 

@@ -5,7 +5,7 @@ public class LightOff extends Event {
 
     /**
      * @param controller The greenhouse controls we are working on
-     * @param delayTime The amount of time to delay for
+     * @param du The amount of time to delay for
      */
     public LightOff(GreenhouseControls controller, Long du) {
         super(controller,du);
@@ -17,11 +17,11 @@ public class LightOff extends Event {
      */
     public void action() {
         this.ctl.setVariable("Lights", false);
-     /*   if (!isAttempted())
+        if (!isAttempted())
         {
             GreenhouseControls.gfcf.setTheTextArea(toString());
             setAttempted(true);
-        }*/
+        }
         return;
     }
 

@@ -5,7 +5,7 @@ public class PowerOut extends Event {
 
     /**
      * @param controller The greenhouse controls we are working on
-     * @param delayTime The amount of time to delay for.
+     * @param du The amount of time to delay for.
      */
     public PowerOut(GreenhouseControls controller,Long du) {
         super(controller, du);
@@ -18,14 +18,14 @@ public class PowerOut extends Event {
     public void action() throws ControllerException {
         this.ctl.setVariable("Power On", false);
         this.ctl.setVariable("Error Code", "2");
-     /*   if(!isAttempted())
+      if(!isAttempted())
         {
             setAttempted(true);
             throw new ControllerException("Error Code 2: Power out!");
         }else
         {
             return;
-        }*/
+        }
 
     }
 

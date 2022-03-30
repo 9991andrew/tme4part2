@@ -4,7 +4,7 @@
 public class Terminate extends Event {
     /** <b>The terminate constructor</b>
      * @param controller The greenhouse controls instance we are using
-     * @param delayTime The amount of delay we want.
+     * @param du The amount of delay we want.
      */
     public Terminate(GreenhouseControls controller, Long du) {
         super(controller, du);

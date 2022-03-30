@@ -4,7 +4,7 @@
 public class ThermostatDay extends Event {
     /**
      * @param controller The greenhouse controls we are working on.
-     * @param delayTime The amount of time to delay for.
+     * @param du The amount of time to delay for.
      */
     public ThermostatDay(GreenhouseControls controller, Long du) {
         super(controller,du);
@@ -16,14 +16,14 @@ public class ThermostatDay extends Event {
      */
     public void action() {
         this.ctl.setVariable("Thermostat", true);
-     /*   if(!isAttempted())
+        if(!isAttempted())
         {
             GreenhouseControls.gfcf.setTheTextArea(toString());
             setAttempted(true);
         }else
         {
             return;
-        }*/
+        }
     }
 
     /** <b>Thermostat toString</b>

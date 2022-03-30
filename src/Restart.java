@@ -70,8 +70,8 @@ public class Restart extends Event {
             System.out.println("hglkdgdf");
             e.printStackTrace();
         }
-        //for(Event e : ctl.getEventList())
-          //  e.resume();
+        for(Event e : ctl.getEventList())
+            e.resume();
     }
 
 

@@ -34,6 +34,7 @@
  */
 
 
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -131,44 +132,44 @@ public class GreenhouseControls extends Controller implements Serializable {
     public void suspendAllThreads() {
         for(Event e : this.getEventList())
         {
-            this.suspend();
+            e.suspend();
         }
     }
 
     /** <b>This method restarts all the threads (or events).</b>
      * @param gc The greenhouse controls we are working on
      */
-    /*public void restartAllThreads(GreenhouseControls gc) {
+    public void restartAllThreads(GreenhouseControls gc) {
         for (int i = 0; i < gc.getEventList().size(); i++) {
             Event e = gc.getEventList().get(i);
             if (!e.isAttempted())
             {
-                //e.restart();
+                e.restart();
                 Thread t = new Thread(e);
                 t.start();
             }
         }
-    }*/
+    }
 
     /** <b>Terminates the events.</b>
      * @param d Amount of tiem to terminate for
      */
-    /*public void terminateAll(long d) {
+    public void terminateAll(long d) {
         for(Event e : this.getEventList())
         {
             e.setAttempted(false);
         }
         Thread t = new Thread(new Terminate(this, d));
         t.start();
-    }*/
+    }
 
     /**
      * <b>Resumes all the events.</b>
      */
     public void resumeAll()
     {
-      // for(Event e : this.getEventList())
-           // e.resume();
+       for(Event e : this.getEventList())
+           e.resume();
     }
 
     /** <b>Restores the events.</b>
@@ -219,23 +220,12 @@ public class GreenhouseControls extends Controller implements Serializable {
             fixable.log();
             gc.setErrorCode("0");
             gfcf.setTheTextArea("Error Code is now: " + getErrorCode());
-        //    if(theError == 0)
-            //    restartAllThreads(gc);
+            if(theError == 0)
+              restartAllThreads(gc);
         }
-        //if(theError == 0)
-          //  restartAllThreads(gc);
+        if(theError == 0)
+            restartAllThreads(gc);
     }
-    /*public boolean IsRunning()
-    {
-        for(Thread t : this.getThreadList())
-        {
-            if(t.isAlive())
-            {
-                return true;
-            }
-        }*/
-     //   return false;
-    //}
 
     /** <b>Gets a fixable interface corresponding to the individual error numbers</b>
      * @param error The error number 1 windowmalfunction 2 poweroff.
@@ -265,6 +255,7 @@ public class GreenhouseControls extends Controller implements Serializable {
     public static void main(String[] args) throws Exception {
         try {
            GreenhouseControls ghc = new GreenhouseControls();
+           gfcf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         }catch(Throwable e)
         {
             e.printStackTrace();

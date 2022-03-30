@@ -4,7 +4,7 @@
 public class WindowMalfunction extends Event {
     /**
      * @param controller The greenhouse controls we are working on
-     * @param delayTime The amount of time to delay for.
+     * @param du The amount of time to delay for.
      */
     public WindowMalfunction(GreenhouseControls controller, Long du) {
 
@@ -18,11 +18,11 @@ public class WindowMalfunction extends Event {
     public void action() throws ControllerException{
         this.ctl.setVariable("Window Ok", false);
         this.ctl.setVariable("Error Code", "1");
-       /* if(!isAttempted())
+        if(!isAttempted())
         {
             setAttempted(true);
             throw new ControllerException(toString());
-        }*/
+        }
         return;
     }
 

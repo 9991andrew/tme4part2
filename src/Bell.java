@@ -15,7 +15,7 @@ public class Bell extends Event {
     }
     /**
      * @param controller The greenhouse controls we are working on.
-     * @param
+     * @param du the amount of time to delay for
         */
     public Bell(GreenhouseControls controller, Long du) {
         super(controller,du);
@@ -27,11 +27,11 @@ public class Bell extends Event {
      */
     public void action() {
         this.ctl.setVariable("Bell", rings);
-       /* if(!isAttempted())
+        if(!isAttempted())
         {
             GreenhouseControls.gfcf.setTheTextArea(toString());
             setAttempted(true);
-        }*/
+        }
         return;
     }
 

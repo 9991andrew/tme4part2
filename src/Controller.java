@@ -23,9 +23,7 @@ import java.util.ArrayList;
 public class Controller implements Serializable {
     // A class from java.util to hold Event objects:
     private ArrayList<Event> eventList = new ArrayList<>();
-    private int threadCount;
 
-    protected boolean suspend;
     protected boolean running;
 
 
@@ -61,7 +59,8 @@ public class Controller implements Serializable {
             Event e = (Event) object;
             e.setTheDuration(time);
             addEvent(e);
-           // scheduleEvent(name, time);
+            e.suspend();
+            e.setAttempted(false);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (NoSuchMethodException e) {
@@ -88,6 +87,8 @@ public class Controller implements Serializable {
             Object object = constructor.newInstance(controller, time, ring);
             Event e = (Event) object;
             addEvent(e);
+            e.suspend();
+            e.setAttempted(false);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (NoSuchMethodException e) {
@@ -101,28 +102,6 @@ public class Controller implements Serializable {
         }
     }
 
-
-        public boolean isRunning()
-        {
-            synchronized (this)
-            {
-                notifyAll();
-            }
-            return running;
-        }
-    public void setRunning(boolean running)
-    {
-        synchronized (this)
-        {
-            this.running = running;
-            notifyAll();
-        }
-    }
-    public void suspend(){
-        synchronized (this) {
-            suspend = true;
-        }
-    }
     //Overloaded function
     protected void shutdown(GreenhouseControls gc, String message) {
 
